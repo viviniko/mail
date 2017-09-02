@@ -1,0 +1,29 @@
+{
+    "name": "viviniko/mail",
+    "description": "VIVINIKO Mail Service Provider",
+	"keywords": ["viviniko", "mail", "laravel"],
+	"homepage": "http://viviniko.com",
+	"license": "MIT",
+	"authors": [
+        {
+            "name": "viviniko",
+            "email": "viviniko.shop@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/bus": "~5.0",
+        "illuminate/mail": "~5.0",
+        "illuminate/queue": "~5.0",
+        "illuminate/support": "~5.0",
+        "twig/twig": "~2.0",
+        "viviniko/support": "dev-master"
+    },
+	"autoload": {
+        "psr-0": {
+            "Viviniko\\Mail": "src"
+        }
+    },
+    "minimum-stability": "dev",
+	"prefer-stable": true
+}
