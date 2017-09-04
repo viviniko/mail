@@ -19,11 +19,18 @@
         "twig/twig": "~2.0",
         "viviniko/support": "dev-master"
     },
-	"autoload": {
+    "autoload": {
         "psr-0": {
             "Viviniko\\Mail": "src"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Viviniko\\Mail\\MailServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev",
-	"prefer-stable": true
+    "prefer-stable": true
 }

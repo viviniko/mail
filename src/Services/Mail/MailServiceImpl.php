@@ -35,8 +35,9 @@ class MailServiceImpl implements MailService
      * @param mixed $to
      * @param string $template  Email template or content.
      * @param array|Model $data
+     * @param $driver
      */
-    public function send($to, $template, $data = []) {
+    public function send($to, $template, $data = [], $driver = 'default') {
         $result = $this->parseMailTo($to);
 
         if (!$result['address']) {
@@ -44,6 +45,8 @@ class MailServiceImpl implements MailService
         }
 
         $data = array_merge($result['data'], $this->parseMailData($data));
+
+        Mail::setSwiftMailer($this->getDriver($driver));
 
         Mail::to($result['address'])->send(empty($data) ? $template : $this->make($template, $data));
     }
@@ -54,20 +57,29 @@ class MailServiceImpl implements MailService
      * @param array|Collection $all
      * @param $template
      * @param array $data
+     * @param $driver
      */
-    public function sendAll($all, $template, array $data = []) {
-        $defaultSwift = Mail::getSwiftMailer();
-        Mail::setSwiftMailer(app('sendgrid.swift.mailer'));
-
+    public function sendAll($all, $template, array $data = [], $driver = 'default') {
         foreach ($all as $to) {
             try {
-                $this->send($to, $template, $data);
+                $this->send($to, $template, $data, $driver);
             } catch (\InvalidArgumentException $e) {
                 // ignore
             }
         }
+    }
 
-        Mail::setSwiftMailer($defaultSwift);
+    public function getDriver($driver = null) {
+        $drivers = [
+            'default' => app('swift.mailer'),
+            'sendgrid' => app('sendgrid.swift.mailer'),
+        ];
+
+        if ($driver && !isset($drivers[$driver])) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $driver ? $drivers[$driver] : $drivers;
     }
 
     protected function parseMailTo($to) {
