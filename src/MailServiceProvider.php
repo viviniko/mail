@@ -109,6 +109,10 @@ class MailServiceProvider extends BaseServiceProvider
     public function provides()
     {
         return [
+            \Viviniko\Mail\Repositories\Alias\AliasRepository::class,
+            \Viviniko\Mail\Repositories\Domain\DomainRepository::class,
+            \Viviniko\Mail\Repositories\Template\TemplateRepository::class,
+            \Viviniko\Mail\Repositories\User\UserRepository::class,
             \Viviniko\Mail\Contracts\MailService::class,
             \Viviniko\Mail\Contracts\TemplateService::class
         ];
