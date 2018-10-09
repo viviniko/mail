@@ -2,14 +2,16 @@
 
 namespace Viviniko\Mail\Repositories\Alias;
 
-use Viviniko\Repository\SimpleRepository;
+use Illuminate\Support\Facades\Config;
+use Viviniko\Repository\EloquentRepository;
 use Illuminate\Support\Facades\DB;
 
-class EloquentAlias extends SimpleRepository implements AliasRepository
+class EloquentAlias extends EloquentRepository implements AliasRepository
 {
-    use ValidatesAliasData;
-
-    protected $modelConfigKey = 'mail.alias';
+    public function __construct()
+    {
+        parent::__construct(Config::get('mail.alias'));
+    }
 
     /**
      * {@inheritdoc}

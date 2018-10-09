@@ -1,6 +1,6 @@
 <?php
 
-namespace Viviniko\Mail\Contracts;
+namespace Viviniko\Mail\Services;
 
 use Viviniko\Mail\Exceptions\MailTemplateNotFoundException;
 use Illuminate\Mail\Mailable;

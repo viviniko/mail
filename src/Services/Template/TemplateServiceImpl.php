@@ -2,7 +2,7 @@
 
 namespace Viviniko\Mail\Services\Template;
 
-use Viviniko\Mail\Contracts\TemplateService;
+use Viviniko\Mail\Services\TemplateService;
 use Viviniko\Mail\Exceptions\MailTemplateNotFoundException;
 use Viviniko\Mail\Models\Template;
 use Viviniko\Mail\Repositories\Template\TemplateRepository;

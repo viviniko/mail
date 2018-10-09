@@ -1,6 +1,6 @@
 <?php
 
-namespace Viviniko\Mail\Contracts;
+namespace Viviniko\Mail\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Mail\Mailable;

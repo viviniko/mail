@@ -2,19 +2,21 @@
 
 namespace Viviniko\Mail\Repositories\Template;
 
-use Viviniko\Repository\SimpleRepository;
+use Illuminate\Support\Facades\Config;
+use Viviniko\Repository\EloquentRepository;
 
-class EloquentTemplate extends SimpleRepository implements TemplateRepository
+class EloquentTemplate extends EloquentRepository implements TemplateRepository
 {
-    use ValidatesTemplateData;
-
-    protected $modelConfigKey = 'mail.template';
+    public function __construct()
+    {
+        parent::__construct(Config::get('mail.template'));
+    }
 
     /**
      * {@inheritdoc}
      */
     public function findByKey($key)
     {
-        return $this->findBy('key', $key)->first();
+        return $this->findBy('key', $key);
     }
 }

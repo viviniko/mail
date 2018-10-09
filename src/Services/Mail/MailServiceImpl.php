@@ -2,8 +2,8 @@
 
 namespace Viviniko\Mail\Services\Mail;
 
-use Viviniko\Mail\Contracts\MailService;
-use Viviniko\Mail\Contracts\TemplateService;
+use Viviniko\Mail\Services\MailService;
+use Viviniko\Mail\Services\TemplateService;
 use Viviniko\Mail\Models\Template;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;

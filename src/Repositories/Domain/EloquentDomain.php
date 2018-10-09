@@ -2,26 +2,28 @@
 
 namespace Viviniko\Mail\Repositories\Domain;
 
-use Viviniko\Repository\SimpleRepository;
+use Illuminate\Support\Facades\Config;
+use Viviniko\Repository\EloquentRepository;
 
-class EloquentDomain extends SimpleRepository implements DomainRepository
+class EloquentDomain extends EloquentRepository implements DomainRepository
 {
-    use ValidatesDomainData;
-
-    protected $modelConfigKey = 'mail.domain';
+    public function __construct()
+    {
+        parent::__construct(Config::get('mail.domain'));
+    }
 
     /**
      * {@inheritdoc}
      */
     public function findByName($name) {
-        return $this->findBy('name', $name)->first();
+        return $this->findBy('name', $name);
     }
 
     /**
      * {@inheritdoc}
      */
     public function pluck($column = 'name', $key = 'id') {
-        return $this->createModel()->newQuery()->pluck($column, $key);
+        return $this->pluck($column, $key);
     }
 
 }

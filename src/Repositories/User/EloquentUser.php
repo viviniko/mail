@@ -2,14 +2,16 @@
 
 namespace Viviniko\Mail\Repositories\User;
 
-use Viviniko\Repository\SimpleRepository;
+use Illuminate\Support\Facades\Config;
+use Viviniko\Repository\EloquentRepository;
 use Illuminate\Support\Facades\DB;
 
-class EloquentUser extends SimpleRepository implements UserRepository
+class EloquentUser extends EloquentRepository implements UserRepository
 {
-    use ValidatesUserData;
-
-    protected $modelConfigKey = 'mail.user';
+    public function __construct()
+    {
+        parent::__construct(Config::get('mail.user'));
+    }
 
     /**
      * {@inheritdoc}
@@ -17,7 +19,7 @@ class EloquentUser extends SimpleRepository implements UserRepository
     public function updateDomain($domainId, $oldName, $newName)
     {
         if ($newName && $oldName != $newName) {
-            $this->createModel()->newQuery()->where('domain_id', $domainId)->update(['email' => DB::raw("replace(email, '@$oldName', '@$newName')")]);
+            $this->createQuery()->where('domain_id', $domainId)->update(['email' => DB::raw("replace(email, '@$oldName', '@$newName')")]);
         }
     }
 }
