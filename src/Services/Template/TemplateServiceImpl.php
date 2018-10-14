@@ -36,6 +36,17 @@ class TemplateServiceImpl implements TemplateService
         return $this->templates->all();
     }
 
+    /**
+     * Get template.
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getTemplate($id)
+    {
+        return $this->templates->find($id);
+    }
+
     public function createTemplate(array $data)
     {
         return $this->templates->create($data);
