@@ -31,6 +31,26 @@ class TemplateServiceImpl implements TemplateService
         $this->twig->setLexer(new \Twig\Lexer($this->twig, ['tag_block' => ['<!--', '-->']]));
     }
 
+    public function templates()
+    {
+        return $this->templates->all();
+    }
+
+    public function createTemplate(array $data)
+    {
+        return $this->templates->create($data);
+    }
+
+    public function updateTemplate($id, array $data)
+    {
+        return $this->templates->update($id, $data);
+    }
+
+    public function deleteTemplate($id)
+    {
+        return $this->templates->delete($id);
+    }
+
     /**
      * Get mail message.
      *
