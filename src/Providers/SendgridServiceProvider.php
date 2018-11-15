@@ -35,9 +35,7 @@ class SendgridServiceProvider extends ServiceProvider
                 $config = $this->app['config']['mail'];
                 $config = array_merge($config, is_array($config['sendgrid']) ? $config['sendgrid'] : []);
 
-                $transport = SmtpTransport::newInstance(
-                    $config['host'], $config['port']
-                );
+                $transport = new SmtpTransport($config['host'], $config['port']);
 
                 if (isset($config['encryption'])) {
                     $transport->setEncryption($config['encryption']);
