@@ -2,15 +2,10 @@
 
 namespace Viviniko\Mail\Repositories\User;
 
-interface UserRepository
-{
-    /**
-     * Get all data.
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    public function all();
+use Viviniko\Repository\CrudRepository;
 
+interface UserRepository extends CrudRepository
+{
     /**
      * Update user email domain.
      *

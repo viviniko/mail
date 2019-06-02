@@ -2,15 +2,10 @@
 
 namespace Viviniko\Mail\Repositories\Alias;
 
-interface AliasRepository
-{
-    /**
-     * Get all data.
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    public function all();
+use Viviniko\Repository\CrudRepository;
 
+interface AliasRepository extends CrudRepository
+{
     /**
      * Update alias domain.
      *

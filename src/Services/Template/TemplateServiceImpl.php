@@ -87,7 +87,7 @@ class TemplateServiceImpl implements TemplateService
      * @return Template|null
      */
     public function get($idOrKey) {
-        return is_numeric($idOrKey) ? $this->templates->find($idOrKey) : $this->templates->findByKey($idOrKey);
+        return is_numeric($idOrKey) ? $this->templates->find($idOrKey) : $this->templates->findBy('key', $idOrKey);
     }
 
     /**

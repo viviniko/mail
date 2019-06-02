@@ -18,12 +18,4 @@ class EloquentDomain extends EloquentRepository implements DomainRepository
     public function findByName($name) {
         return $this->findBy('name', $name);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function pluck($column = 'name', $key = 'id') {
-        return $this->pluck($column, $key);
-    }
-
 }

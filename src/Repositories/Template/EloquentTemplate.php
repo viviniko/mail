@@ -11,12 +11,4 @@ class EloquentTemplate extends EloquentRepository implements TemplateRepository
     {
         parent::__construct(Config::get('mail.template'));
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findByKey($key)
-    {
-        return $this->findBy('key', $key);
-    }
 }
