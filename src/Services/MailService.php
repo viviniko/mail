@@ -23,8 +23,9 @@ interface MailService
      * @param mixed $to
      * @param string $template  Email template or content.
      * @param array|Model $data
+     * @param $driver
      */
-    public function send($to, $template, $data = []);
+    public function send($to, $template, $data = [], $driver = null);
 
     /**
      * Send multi mail by third party.
@@ -32,6 +33,7 @@ interface MailService
      * @param array|Collection $all
      * @param $template
      * @param array $data
+     * @param $driver
      */
-    public function sendAll($all, $template, array $data = []);
+    public function sendAll($all, $template, array $data = [], $driver = null);
 }

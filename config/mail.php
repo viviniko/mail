@@ -1,6 +1,9 @@
 <?php
 
 return [
+
+    'default_driver' => 'swift.mailer',
+
     /*
     |--------------------------------------------------------------------------
     | mail virtual aliases.
