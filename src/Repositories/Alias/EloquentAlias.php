@@ -10,7 +10,7 @@ class EloquentAlias extends EloquentRepository implements AliasRepository
 {
     public function __construct()
     {
-        parent::__construct(Config::get('mail.alias'));
+        parent::__construct(Config::get('mail.models.alias'));
     }
 
     /**

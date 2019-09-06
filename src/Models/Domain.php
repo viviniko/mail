@@ -6,7 +6,7 @@ use Viviniko\Support\Database\Eloquent\Model;
 
 class Domain extends Model
 {
-    protected $tableConfigKey = 'mail.virtual_domains_table';
+    protected $tableConfigKey = 'mail.tables.virtual_domains_table';
 
     public $timestamps = false;
 

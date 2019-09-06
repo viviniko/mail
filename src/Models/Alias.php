@@ -6,7 +6,7 @@ use Viviniko\Support\Database\Eloquent\Model;
 
 class Alias extends Model
 {
-    protected $tableConfigKey = 'mail.virtual_aliases_table';
+    protected $tableConfigKey = 'mail.tables.virtual_aliases_table';
 
     public $timestamps = false;
 

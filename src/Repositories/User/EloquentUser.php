@@ -10,7 +10,7 @@ class EloquentUser extends EloquentRepository implements UserRepository
 {
     public function __construct()
     {
-        parent::__construct(Config::get('mail.user'));
+        parent::__construct(Config::get('mail.models.user'));
     }
 
     /**

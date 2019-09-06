@@ -6,7 +6,7 @@ use Viviniko\Support\Database\Eloquent\Model;
 
 class User extends Model
 {
-    protected $tableConfigKey = 'mail.virtual_users_table';
+    protected $tableConfigKey = 'mail.tables.virtual_users_table';
 
     public $timestamps = false;
 

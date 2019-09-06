@@ -9,7 +9,7 @@ class EloquentDomain extends EloquentRepository implements DomainRepository
 {
     public function __construct()
     {
-        parent::__construct(Config::get('mail.domain'));
+        parent::__construct(Config::get('mail.models.domain'));
     }
 
     /**

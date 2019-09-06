@@ -9,6 +9,6 @@ class EloquentTemplate extends EloquentRepository implements TemplateRepository
 {
     public function __construct()
     {
-        parent::__construct(Config::get('mail.template'));
+        parent::__construct(Config::get('mail.models.template'));
     }
 }
