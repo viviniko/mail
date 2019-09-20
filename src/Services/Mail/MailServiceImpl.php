@@ -96,7 +96,7 @@ class MailServiceImpl implements MailService
         $result = is_array($result) ? $result : (array)$result;
         $result = array_merge([
             'app_name' => Config::get('app.name'),
-            'app_domain' => Config::get('app.domain'),
+            'app_domain' => Config::get('app.domain_name'),
             'app_url' => Config::get('app.url'),
         ], $result);
 
