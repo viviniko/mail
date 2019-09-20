@@ -2,6 +2,7 @@
 
 namespace Viviniko\Mail\Services\Mail;
 
+use Illuminate\Support\Facades\Config;
 use Viviniko\Mail\Services\MailService;
 use Viviniko\Mail\Services\TemplateService;
 use Viviniko\Mail\Models\Template;
@@ -92,7 +93,13 @@ class MailServiceImpl implements MailService
         if ($data instanceof Model) {
             $result = $data->toArray();
         }
+        $result = is_array($result) ? $result : (array)$result;
+        $result = array_merge([
+            'app_name' => Config::get('app.name'),
+            'app_domain' => Config::get('app.domain'),
+            'app_url' => Config::get('app.url'),
+        ], $result);
 
-        return is_array($result) ? $result : (array)$result;
+        return $result;
     }
 }
