@@ -7,6 +7,7 @@ use Viviniko\Mail\Exceptions\MailTemplateNotFoundException;
 use Viviniko\Mail\Models\Template;
 use Viviniko\Mail\Repositories\Template\TemplateRepository;
 use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 
 class TemplateServiceImpl implements TemplateService
@@ -149,7 +150,7 @@ class TemplateServiceImpl implements TemplateService
     }
 
     protected function parseFrom($from, $data) {
-        $config = config('mail.from');
+        $config = Config::get('mail.from');
         $name = $config['name'];
         $address = $config['address'];
         $domain = $data['domain'] ?? (explode('@', $address, 2)[1]);
