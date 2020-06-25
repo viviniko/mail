@@ -32,10 +32,10 @@ class CreateMailTable extends Migration
      */
     public function __construct()
     {
-        $this->virtualDomainsTable = Config::get('mail.virtual_domains_table');
-        $this->virtualUsersTable = Config::get('mail.virtual_users_table');
-        $this->virtualAliasesTable = Config::get('mail.virtual_aliases_table');
-        $this->templatesTable = Config::get('mail.templates_table');
+        $this->virtualDomainsTable = Config::get('mail.tables.virtual_domains_table');
+        $this->virtualUsersTable = Config::get('mail.tables.virtual_users_table');
+        $this->virtualAliasesTable = Config::get('mail.tables.virtual_aliases_table');
+        $this->templatesTable = Config::get('mail.tables.templates_table');
     }
 
     /**
